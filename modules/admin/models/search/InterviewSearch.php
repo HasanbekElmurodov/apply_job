@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\models\search;
 
-use app\models\Examiner;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Interview;
@@ -60,7 +59,7 @@ class InterviewSearch extends Interview
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'examiner_id' => $this->getExaminer()->all(),
+            'examiner_id' => $this->examiner_id,
             'applicant_id' => $this->applicant_id,
             'interview_time' => $this->interview_time,
         ]);

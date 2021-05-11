@@ -30,8 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'username',
             'email:email',
-            'status',
-
+//            'status',
+            [
+                    'attribute' => 'status',
+                'value' => function ($model){
+        return $model->status;
+                },
+                'filter' => ['1' => 'Active', '2' => 'Inactive'],
+],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

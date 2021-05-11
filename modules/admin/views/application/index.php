@@ -18,7 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Application', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php
+    // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -33,8 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'phone_number',
             'age',
-            'status',
-
+            [
+                'attribute' => 'status',
+                'value' => function ($model){
+                    return  $model->status;
+                },
+                'filter' => ['1' => 'Yangi', '2' => 'Intervyu belgilangan', '3' => 'qabul qilingan', '4' => 'qabul qilinmagan'],
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
