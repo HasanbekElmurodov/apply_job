@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'country_of_origin',
             'email:email',
-            'phone_number',
+            'attribute' => 'phone_number',
             'age',
             [
                 'attribute' => 'status',
